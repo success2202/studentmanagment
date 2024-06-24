@@ -14,8 +14,8 @@ if(isset($_POST['submit_teacher'])){
     $t_name = $_POST['name'];
     $teacher_desc = $_POST['description'];
     $teacher_image = $_FILES['image']['name'];
-   $dst="./image/".$teacher_image;
-   $dst_db="image/".$teacher_image;
+    $dst="./image/".$teacher_image;
+    $dst_db="image/".$teacher_image;
    move_uploaded_file($_FILES['image']['name'], $dst);
 
 $sql="INSERT INTO teacher(sname, description, image)
@@ -23,11 +23,10 @@ VALUES('{$t_name}', '{$teacher_desc}', '{$dst_db}')";
 $query=mysqli_query($con, $sql);
 if($query){
     echo " <script type='text/javascript'>  alert('teacher has been added successfully') </script>";
+    header("location: view_teacher.php");
 }else{
     echo " failed to add student";
 }
-}else{ 
-    echo "username has been taken";
 }
 
 ?>
