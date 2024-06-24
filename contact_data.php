@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
         die("QUERY_FAILED". mysqli_error($con));
         
     }else{
-        $_SESSION['message']="Your application has been submitted successfully";
+        //$_SESSION['message']="Your application has been submitted successfully";
         header("location: index.php");
     }
 }

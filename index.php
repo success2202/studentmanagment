@@ -1,7 +1,11 @@
 <?php
 error_reporting(0);
 session_start();
-session_destroy();
+
+
+if(!isset($_SESSION['username'])){
+    header("location: login.php");
+}
 
 if($_SESSION['message']){
     $message = $_SESSION['message'];
@@ -21,6 +25,8 @@ if($_SESSION['message']){
  <!-- Latest compiled and minified CSS -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 
+ <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
 
@@ -29,12 +35,42 @@ if($_SESSION['message']){
 </head>
 <body>
 <nav>
+    
     <label class="logo" for=""> Holy Ghost College</label>
     <ul>
-        <li> <a href="">Home</a> </li>
+    <?php if(isset($_SESSION['username']) && $_SESSION['usertype']=='student'): ?>
+        <li> <a href="studentHome.php">Profile</a> </li>
+            <?php elseif(isset($_SESSION['username']) && $_SESSION['usertype']=='admin'): ?>
+        <li> <a href="adminHome.php">Admin</a> </li>
+        <?php endif; ?>
+        <li> <a href="" class="fa fa-home">Home</a> </li>
         <li> <a href="">Contact</a> </li>
         <li> <a href="">Admission</a> </li>
-        <li> <a href="login.php" class="btn btn-success">Login</a> </li>
+
+
+        <?php //if(isLoggedIn()):  ?>
+
+<?php //if(!is_Admin() && !is_Client()): ?>
+<!-- <li>
+    <a href="/cms/admin">ADMIN</a>
+</li> -->
+
+<?php //elseif(is_Admin()): ?>
+    
+<!-- <li>
+    <a href="/cms/admin/dashboard.php">ADMIN</a>
+</li> -->
+
+<?php //endif; ?>
+
+<?php
+if(isset($_SESSION['username'])): ?>
+<li> <a href="logout.php" class="btn btn-success">Logout</a> </li>
+<?php else: ?>
+        
+    <li> <a href="login.php" class="btn btn-success">Login</a> </li>
+       
+ <?php endif; ?>
     </ul>
 </nav>
 

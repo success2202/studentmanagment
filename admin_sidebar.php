@@ -4,6 +4,9 @@
             <div class="logout">
                 <a href="logout.php" class="btn btn-primary">Log out</a>
             </div>
+            <div class="logout">
+                <a href="index.php" class="btn btn-primary">Home</a>
+            </div>
 </header>
 
 <aside>

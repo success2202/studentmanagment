@@ -14,4 +14,16 @@ session_start();
     }
     }
 
+ 
+    if($_GET['teacher_id']){
+        $teacher_id = $_GET['teacher_id'];
+    $sql = "DELETE FROM teacher WHERE id = '{$teacher_id}' ";
+    $query = mysqli_query($con, $sql);
+
+    if($query){
+        $_SESSION['message'] = 'teacher deleted successfully';
+        header("location: view_teacher.php");
+    }
+    }
+
        ?>

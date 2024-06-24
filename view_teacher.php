@@ -91,13 +91,13 @@ while($row=$query->fetch_assoc()){
                 <td class="tb_td"> <?php
                  echo "<a class='btn btn-danger' onClick=\" javascript:return confirm('Are you
                 sure you want to delete this'); \" 
-                href='delete.php?student_id={$row['id']}'> Delete </a>";
+                href='delete.php?teacher_id={$row['id']}'> Delete </a>";
                 ?>
                 </td>
                 <td class="tb_td"> <?php
                  echo "<a class='btn btn-success' onClick=\" javascript:return confirm('Are you
                 sure you want to Edit this'); \" 
-                href='update_student.php?edit_student={$row['id']}'> Edit </a>";
+                href='update_teacher.php?edit_teacher={$row['id']}'> Edit </a>";
                 ?>
                 </td>
             </tr>
